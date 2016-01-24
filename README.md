@@ -26,7 +26,7 @@ Now generate your `User` model with:
 
     rails g devise User
 
-Run `rake routes`. You should see that Devise has added a bunch of them. Run `rails s` and take a look at one, maybe `/users/sign_in`.
+Run `rake routes` and `rake db:migrate`. You should see that Devise has added a bunch of them. Run `rails s` and take a look at one, maybe `/users/sign_in`.
 
 You should now have a working app with sign in.
 
@@ -47,7 +47,7 @@ And add the Omniauth configuration to `config/initializers/devise.rb`:
 
     config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 
-This requires that you have `FACEBOOK_KEY` and `FACEBOOK_SECRET` in your environment. Create an application in the [Facebook developer console][fbdev] and get these values from there. You'll also need to go to Settings > Advanced and set Valid OAuth Redirect URLs to include `http://localhost:3000/users/auth/facebook/callback`.
+You'll see that there's another similar line commented out for Github; feel free to reference it. This requires that you have `FACEBOOK_KEY` and `FACEBOOK_SECRET` in your environment. Create an application in the [Facebook developer console][fbdev] and get these values from there. You'll also need to go to Settings > Advanced and set Valid OAuth Redirect URLs to include `http://localhost:3000/users/auth/facebook/callback`. This setting is listed under `Client OAuth Settings` in the dashboard, and yes, I wish I could link you right to it.
 
 Confusingly, `FACEBOOK_KEY` is called appId in the console. Set the values in your shell like so,
 
@@ -64,7 +64,7 @@ And add this line to your welcome view:
 
 If you visit your page and click "Sign in with Facebook," you should be able to go through a Facebook application authorization flow.
 
-You'll be greeted with an error: `The action 'facebook' could not be found for Devise::OmniauthCallbacksController`. Okay, let's make one.
+When you return to your app, you'll be greeted with an error: `The action 'facebook' could not be found for Devise::OmniauthCallbacksController`. Okay, let's make one.
 
 Add this to `routes.rb` to tell create a route for Omniauth to send its authentication data to:
 
