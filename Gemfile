@@ -46,6 +46,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'pry-byebug'
 end
 group :test do
   gem 'capybara'
@@ -53,4 +54,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
