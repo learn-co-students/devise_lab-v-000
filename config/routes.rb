@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get '/', to: 'welcome#home', as: :home
+  get '/about', to: 'welcome#about', as: :about
+  root 'welcome#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
