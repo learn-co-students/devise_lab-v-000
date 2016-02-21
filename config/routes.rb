@@ -1,4 +1,8 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
+
+  devise_for :users
+  root 'welcome#index'
+  get '/about' => 'welcome#about'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,7 +19,8 @@ Rails.application.routes.draw do
   #   resources :products
 
   # Example resource route with options:
-  #   resources :products do
+  #   resources :
+  #
   #     member do
   #       get 'short'
   #       post 'toggle'
