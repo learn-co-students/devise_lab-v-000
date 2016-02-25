@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= link_to 'About', '/about' %>
+  <%= link_to 'Home', '/' %>
+  <%= link_to "Sign out", '/users/sign_out', method: 'DELETE' %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
