@@ -3,4 +3,7 @@ class WelcomeController < ApplicationController
     # current_user.email
     
   end
+
+  def about
+  end
 end

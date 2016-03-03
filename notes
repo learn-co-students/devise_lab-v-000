@@ -1,1 +1,2 @@
-should i have overwritten the specs in the generator?
+-i am getting a user back after logging in.  so now to proceed to the rest of the tests
+-not sure how to pass the tests because i can't see devise controllers
