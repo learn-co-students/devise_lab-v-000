@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use sqlite3 as the database for Active Record
@@ -35,7 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
-gem 'sqlite3'
+gem 'omniauth-facebook'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
