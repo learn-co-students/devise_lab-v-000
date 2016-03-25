@@ -35,7 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
-gem 'sqlite3'
+gem 'omniauth'
+gem 'omniauth-facebook'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
