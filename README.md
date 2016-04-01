@@ -18,7 +18,7 @@ Now run the installer:
 
 This creates a massive initializer in `config/initializers/devise.rb`. This is probably the single best source of documentation for Devise that I've seen. You may wish to look through it.
 
-You'll notice that the installer prints a big notice of several things you should do. In particular, we should have a route route.
+You'll notice that the installer prints a big notice of several things you should do. In particular, we should have a route.
 
 Create a `WelcomeController` with a `home` action and a view that just prints `current_user.email`.
 
@@ -114,3 +114,4 @@ If Devise doesn't seem able to get an email from Facebook, you may have to de-au
 
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
