@@ -41,6 +41,9 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem 'omniauth'
+  gem 'omniauth-facebook'
+  gem 'pry'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -53,4 +56,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
