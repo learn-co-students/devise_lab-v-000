@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <%= render 'layouts/messages' %>
+<%=link_to "Home", root_path%> - <%=link_to "Sign in", new_user_session_path%> - <%=link_to "Sign up", new_user_registration_path%>
+  <br>
 <%= yield %>
-
+<br><br>
+  <%=link_to "Sign out", destroy_user_session_path, method:'delete'%>
 </body>
 </html>
