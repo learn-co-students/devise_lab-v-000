@@ -1,0 +1,13 @@
+<h1>Welcome#Home</h1>
+<p>Find me in app/views/welcome/home.html.erb</p>
+
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <p>Also: <%= current_user.email %></p>
+<% else %>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <p>...or...</p>
+  <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
+
+
