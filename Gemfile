@@ -28,7 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'omniauth', '>=1.0.0'
+gem 'omniauth-facebook'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -53,4 +54,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
