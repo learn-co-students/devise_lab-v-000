@@ -60,7 +60,7 @@ Add this line to your `user.rb` to enable omniauth:
 
 And add this line to your welcome view:
 
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 
 If you visit your page and click "Sign in with Facebook," you should be able to go through a Facebook application authorization flow.
 
@@ -115,3 +115,5 @@ If Devise doesn't seem able to get an email from Facebook, you may have to de-au
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
