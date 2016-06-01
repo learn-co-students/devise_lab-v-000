@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<ul class="navbar">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "About", about_path %></li>
+  <li><%= navbar_login_for(current_user) %></li>
+</ul>
+
+<div class="errors">
+  <%= error_content_tag(flash) %>
+</div>
+
 <%= yield %>
 
 </body>
