@@ -46,6 +46,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'devise'
+    gem 'tzinfo-data', platform: [:mingw, :mswin, :x64_mingw]
+  gem 'omniauth-facebook'
 end
 group :test do
   gem 'capybara'
