@@ -62,7 +62,7 @@ And add this line to your welcome view:
 
      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 
-If you visit your page and click "Sign in with Facebook," you should be able to go through a Facebook application authorization flow.
+If you visit your page(`users/sign_in`) and click "Sign in with Facebook," you should be able to go through a Facebook application authorization flow.
 
 When you return to your app, you'll be greeted with an error: `The action 'facebook' could not be found for Devise::OmniauthCallbacksController`. Okay, let's make one.
 
