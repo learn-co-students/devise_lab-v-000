@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get 'welcome/home'
+  get 'about', :to => "welcome#about"
+
+  root 'welcome#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
