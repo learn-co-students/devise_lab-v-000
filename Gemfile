@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use sqlite3 as the database for Active Record
@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'omniauth-facebook'
 
 gem 'devise'
 gem 'devise_invitable'
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'learn-co'
 end
 group :test do
   gem 'capybara'
@@ -53,4 +55,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
