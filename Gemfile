@@ -35,7 +35,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
-gem 'sqlite3'
+
+# Omniauth gem for user auth via facebook/google/etc.
+gem 'omniauth'
+
+# Facebook specific omniauth gem
+gem 'omniauth-facebook'
+
+# Enviroment config manager
+gem 'figaro'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -53,4 +62,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
