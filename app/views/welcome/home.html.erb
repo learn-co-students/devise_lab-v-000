@@ -1,0 +1,7 @@
+<p>Welcome</p>
+
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
+<% if current_user %>
+	<%= current_user.email %>
+<% end %>
