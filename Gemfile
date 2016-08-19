@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-facebook'
+gem 'omniauth'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
@@ -35,7 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
-gem 'sqlite3'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -53,4 +55,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
