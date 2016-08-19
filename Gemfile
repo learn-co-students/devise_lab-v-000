@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -36,6 +38,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
 gem 'sqlite3'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -53,4 +56,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
