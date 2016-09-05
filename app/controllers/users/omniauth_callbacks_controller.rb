@@ -2,7 +2,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     @user = User.from_omniauth(auth)
-    sign_in_an_redirect @user
+    sign_in_and_redirect @user
   end
 
   private
