@@ -112,6 +112,8 @@ It turns out that Devise doesn't know automatically. We have to write a method i
 
 If Devise doesn't seem able to get an email from Facebook, you may have to de-authorize and re-authorize your application in your Facebook privacy settings.
 
+Your Rails server must be run from the same shell window/tab as where you set your ENV variables.
+
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
