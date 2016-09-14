@@ -3,9 +3,12 @@
 <% if current_user %>
 <h2>current_user.email</h2>
 <% end %>
+<ul>
+  <li><%= link_to("Sign up", new_user_registration_path) %></li>
 
-<%= link_to("Sign up", new_user_registration_path) %>
+  <li><%= link_to("Sign in", user_session_path) %></li>
 
-<%= link_to("Sign in", user_session_path) %>
+  <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
 
-<%= link_to("Sign out", destroy_user_session_path, :method => :delete) %>
+  <li><%= link_to("Sign out", destroy_user_session_path, :method => :delete) %></li>
+</ul>  
