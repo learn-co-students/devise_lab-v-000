@@ -1,0 +1,11 @@
+<h1>Home</h1>
+<h2>Welcome</h2>
+<% if current_user %>
+<h2>current_user.email</h2>
+<% end %>
+
+<%= link_to("Sign up", new_user_registration_path) %>
+
+<%= link_to("Sign in", user_session_path) %>
+
+<%= link_to("Sign out", destroy_user_session_path, :method => :delete) %>
