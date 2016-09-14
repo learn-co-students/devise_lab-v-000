@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'devise_invitable'
+gem 'omniauth-facebook'
 gem 'high_voltage'
 
 group :development do
