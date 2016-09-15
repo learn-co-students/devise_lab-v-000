@@ -47,7 +47,7 @@ And add the Omniauth configuration to `config/initializers/devise.rb`:
 
     config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 
-You'll see that there's another similar line commented out for Github; feel free to reference it. This requires that you have `FACEBOOK_KEY` and `FACEBOOK_SECRET` in your environment. Create an application in the [Facebook developer console][fbdev] and get these values from there. You'll also need to go to Settings > Advanced and set Valid OAuth Redirect URLs to include `http://localhost:3000/users/auth/facebook/callback`. This setting is listed under `Client OAuth Settings` in the dashboard, and yes, I wish I could link you right to it.
+You'll see that there's another similar line commented out for Github; feel free to reference it. This requires that you have `FACEBOOK_KEY` and `FACEBOOK_SECRET` in your environment. Create an application in the [Facebook developer console][fbdev] and get these values from there. You'll also need to go to +Add Product and select Facebook Login. Then, go to Settings under Facebook Login and set Valid OAuth Redirect URLs to include `http://localhost:3000/users/auth/facebook/callback`. 
 
 Confusingly, `FACEBOOK_KEY` is called appId in the console. Set the values in your shell like so,
 
