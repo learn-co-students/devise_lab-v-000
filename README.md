@@ -66,7 +66,7 @@ If you visit your page and click "Sign in with Facebook," you should be able to 
 
 When you return to your app, you'll be greeted with an error: `The action 'facebook' could not be found for Devise::OmniauthCallbacksController`. Okay, let's make one.
 
-Add this to `routes.rb` to tell create a route for Omniauth to send its authentication data to:
+Add this to `routes.rb` to create a route for Omniauth to send its authentication data to:
 
     devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
