@@ -18,7 +18,7 @@ Now run the installer:
 
 This creates a massive initializer in `config/initializers/devise.rb`. This is probably the single best source of documentation for Devise that I've seen. You may wish to look through it.
 
-You'll notice that the installer prints a big notice of several things you should do. In particular, we should have a route.
+You'll notice that the installer prints a big notice of several things you should do. In particular, we should have a root route.
 
 Create a `WelcomeController` with a `home` action and a view that just prints `current_user.email`.
 
