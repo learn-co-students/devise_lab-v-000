@@ -1,3 +1,4 @@
+require 'pry'
 # Feature: Sign out
 #   As a user
 #   I want to sign out
@@ -13,9 +14,8 @@ feature 'Sign out', :devise do
     signin(user.email, user.password)
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
     click_link 'Sign out'
+  #  binding.pry
     expect(page).to have_content I18n.t 'devise.sessions.signed_out'
   end
 
 end
-
-
