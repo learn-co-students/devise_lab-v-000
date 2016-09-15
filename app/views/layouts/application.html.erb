@@ -7,8 +7,39 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+      </div>
+      <div id="navbar">
 
-<%= yield %>
+      <ul class="nav navbar-nav pull-right">
+        <% if user_signed_in? %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <li><%= current_user.email %></li>
+          </a>
+        </li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <%else%>
+          <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
+          <li><%= link_to "Sign in", user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <%end%>
+      </ul
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
