@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'high_voltage'
+gem 'omniauth-facebook'
+gem "figaro"
 
 group :development do
   gem 'better_errors'
@@ -56,4 +58,3 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
-gem 'omniauth-facebook'
