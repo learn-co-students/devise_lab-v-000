@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 gem 'devise_invitable'
+gem 'omniauth-facebook'
 gem 'high_voltage'
 
 group :development do
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :test do
