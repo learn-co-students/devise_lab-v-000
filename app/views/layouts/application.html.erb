@@ -8,6 +8,30 @@
 </head>
 <body>
 
+  <ul>
+    <li>
+      <%= link_to 'Home', root_path %>
+    </li>
+    <li>
+      <%= link_to 'About', about_path %>
+    </li>
+  </ul>
+
+  <ul>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to 'Welcome', home_path %>
+        <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to 'Login', new_user_session_path  %>
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        <%= link_to 'Sign up', new_user_registration_path  %>
+      </li>
+    <% end %>
+  </ul>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
