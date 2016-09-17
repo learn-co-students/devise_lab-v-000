@@ -98,7 +98,7 @@ We have to write the `User.from_omniauth` method ourselves.
       end
     end
 
-Here we look for a user with that (provider: :facebook, uid: your_uid) pair, and create them if they aren't in the database. For Facebook users, we create a random password. The expectation is that users logging in with Facebook don't subsequently want to set a password.
+Here we look for a user with that (provider: :facebook, uid: your_uid) pair and create them if they aren't in the database. For Facebook users, we create a random password. The expectation is that users logging in with Facebook don't subsequently want to set a password.
 
 You should now see a missing template error. But wait, didn't we say `sign_in_and_redirect`? Where are we being redirected to?
 
@@ -116,6 +116,5 @@ Your Rails server must be run from the same shell window/tab as where you set yo
 
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
