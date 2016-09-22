@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'high_voltage'
+gem 'learn-co'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'better_errors'
