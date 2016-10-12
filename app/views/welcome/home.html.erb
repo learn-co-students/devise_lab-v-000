@@ -1,2 +1,15 @@
+<h1>Home Page</h1>
+<h2>Welcome</h2>
 
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% if logged_in? %>
+  <p>Signed in as <%= current_user.email %></p>
+  <%= link_to "Sign out", destroy_user_session_path, method: 'delete' %>
+<% else %>
+  <p>You are not signed in.</p>
+  <%= link_to "Sign up", new_user_registration_path %> <br>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% end %>
+
+<br><br>
+
+<%= link_to "About the Website", about_path %>
