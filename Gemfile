@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'high_voltage'
 
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -56,3 +57,6 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+gem 'omniauth-facebook'
+
+gem 'pry'
