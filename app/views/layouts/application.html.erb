@@ -8,15 +8,17 @@
 </head>
 <body>
 
-  <%= link_to("Sign Out", destroy_user_session_path) %>
-  <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+  <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error]="Password is too short" %>
   <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
   <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
-  <%= link_to("Sign Up", new_user_registration_path) %>
 
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 
 <%= yield %>
+
+<%= link_to("Sign out", destroy_user_session_path, :method => "delete") %>
+<%= link_to("Home", "/") %>
+<%= link_to("Sign up", new_user_session_path) %>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 
 </body>
 </html>
