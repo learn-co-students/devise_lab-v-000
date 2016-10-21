@@ -1,3 +1,4 @@
+require 'pry'
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -6,14 +7,14 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'dae46d431a368cd31375f4f2a647dd5d7d5403c192903e312905d621f4c9d34c3d5b5a07456eb5d38cc6c060c96f83b4658600a3c4a96392a8da8f86e286b0e8'
+  # config.secret_key = 'bc52a9a84b39a6522763e56d3cd3ef982de7168fb5e6d1a8da635193f6b480068ddf3cc708aabff817fff350229a688448883b9cd8821a73971b9e7ec7ead806'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
@@ -110,7 +111,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '1863bff17e5095e5ad8d0c9e18ef34b167f34304d15980f3b3d3ba46a8b9bd823ba93c081c0e2c662c43fc5dc4ff8375c8def50ba62e9d01dc65d5f77d087462'
+  # config.pepper = '0bc03d83c60bd0b311663cddb4e299db8a80bad20d928e8ab424e39185e86391b202fd1ee6e45662578704a561b94b1c60d6b6580828e2723fbfcb6d18f6c0e3'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -245,6 +246,8 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+
+config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
