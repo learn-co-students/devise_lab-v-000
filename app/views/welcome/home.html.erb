@@ -1,0 +1,25 @@
+<%= javascript_include_tag 'application' %>
+
+
+<h1>Welcome</h1>
+<% if current_user %>
+<%= current_user.email%><br>
+<%= link_to "Sign out", destroy_user_session_path, {method: :delete} %>
+<% else %>
+<%= link_to "Home", about_path %><br>
+<%= link_to "Sign in", new_user_session_path %><br>
+<%= link_to "Sign up", new_user_registration_path %><br>
+<% end %>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+<ul>
+<% flash.each do |name, message| %>
+	<li><%= "#{name}: #{message}" %></li>
+<% end %>
+</ul>
+
+<%= form_tag destroy_user_session_path do %>
+<%= hidden_field_tag :_method, "delete" %>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="submit" value="Sign Out">
+<% end %>
