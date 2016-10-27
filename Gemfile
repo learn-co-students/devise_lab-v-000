@@ -38,7 +38,6 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
-  gem 'pry'
 end
 
 group :development, :test do
@@ -56,3 +55,8 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+
+gem 'omniauth-facebook'
+  gem 'pry'
+
+  gem 'jquery-rails'
