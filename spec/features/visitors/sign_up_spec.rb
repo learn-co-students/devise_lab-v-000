@@ -36,8 +36,9 @@ feature 'Sign Up', :devise do
   #   Given I am not signed in
   #   When I sign up with a short password
   #   Then I see a 'too short password' message
+  #  Devise requires 6 character password minimum -- Test gave 'please', which IS 6 CHARACTERS.
   scenario 'visitor cannot sign up with a short password' do
-    sign_up_with('test@example.com', 'please', 'please')
+    sign_up_with('test@example.com', 'pleas', 'pleas')
     expect(page).to have_content "Password is too short"
   end
 
