@@ -248,6 +248,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  omniauth
   omniauth-facebook
   pry
   quiet_assets
