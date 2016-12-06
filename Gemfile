@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+ 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'high_voltage'
-
+gem 'omniauth-facebook'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
@@ -55,4 +55,4 @@ group :test do
 end
 
 gem 'devise', '~> 4.2.0'
-gem 'devise_invitable'
+gem 'devise_invitable', '~> 1.7.0'
