@@ -7,6 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+  <% if current_user %>
+    <li><%= link_to "Sign out", destroy_user_session_path, method: 'delete' %></li>
+  <% else %>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+    <li><%= link_to "Sign up", new_user_registration_path %></li>
+  <% end %>
+  </ul>
+
+  <%= content_tag(:div, flash[:error], :id => "flash-error") if flash[:error] %>
+  <%= content_tag(:div, flash[:notice], :id => "flash-notice") if flash[:notice] %>
+  <%= content_tag(:div, flash[:alert], :id => "flash-alert") if flash[:alert] %>
 
 <%= yield %>
 

@@ -54,5 +54,9 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+gem 'omniauth-facebook'
+
