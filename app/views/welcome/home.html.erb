@@ -1,0 +1,9 @@
+<h1>Welcome</h1>
+<% if current_user %>
+<h1>Hello <%= current_user.email %>!</h1>
+<%= link_to("Sign out", destroy_user_session_path, method: 'DELETE') %>
+<% else %>
+  <%= link_to "Home", user_facebook_omniauth_authorize_path %>
+  <%= link_to "Sign in", user_facebook_omniauth_authorize_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
