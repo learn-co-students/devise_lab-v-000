@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
@@ -34,7 +34,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'high_voltage'
 
 group :development do
-  gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
