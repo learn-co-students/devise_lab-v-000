@@ -33,12 +33,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'high_voltage'
 
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
   gem 'pry'
+  gem 'byebug', '~> 9.0', '>= 9.0.6'
 end
 
 group :development, :test do
@@ -54,5 +56,6 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'devise', '~> 4.2.0'
+gem 'devise'
 gem 'devise_invitable'
+gem 'omniauth-facebook'
