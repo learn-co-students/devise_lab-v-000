@@ -31,6 +31,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Devise
+gem 'devise', '~> 4.2.0'
+gem 'devise_invitable'
+
+# Omniauth
+gem 'omniauth-facebook'
+
 gem 'high_voltage'
 
 group :development do
@@ -53,6 +60,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
-gem 'devise', '~> 4.2.0'
-gem 'devise_invitable'
