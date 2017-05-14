@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'welcome/home', to: 'welcome#home'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  get '/about', to: 'welcome#home'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

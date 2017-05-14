@@ -155,7 +155,7 @@ config.omniauth :facebook, '554823064905188', '49f76e0f791277e64760e74f4d048ac1'
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
