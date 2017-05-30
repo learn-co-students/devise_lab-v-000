@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'tux'
+gem 'dotenv'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
@@ -39,6 +41,7 @@ group :development do
   gem 'rails_layout'
   gem 'spring-commands-rspec'
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development, :test do
@@ -56,3 +59,4 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+gem 'omniauth-facebook'
