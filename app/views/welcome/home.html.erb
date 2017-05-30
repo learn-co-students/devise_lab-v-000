@@ -1,15 +1,11 @@
 <h1>Home</h1>
 
-<% if current_user %>
-  Welcome, <%= current_user.email  %>
- <% end %>
+Welcome, <%= current_user.email if current_user %>
 
- <br></br>
+<br></br>
 
-<h3><%= link_to "Sign in", new_user_session_path %></h3><br/>
+<%= link_to "Sign in", new_user_session_path %><br>
 
-<h3><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></h3><br/>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %><br>
 
-<h3><%= link_to "Sign up", new_user_registration_path %></h3><br/>
-
-<h3><%= link_to "Sign out", destroy_user_session_path if current_user %></h3>
+<%= link_to "Sign up", new_user_registration_path %>
