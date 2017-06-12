@@ -4,8 +4,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     # user = ::User.from_omniauth(oath_response)
 
-    # if user.persisted?
-    #   flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: provider)
+    if @user.persisted?
+      flash[:notice] = I18n.t("devise.omniauth_callbacks.success", kind: provider)
 
       sign_in_and_redirect @user
     # else
