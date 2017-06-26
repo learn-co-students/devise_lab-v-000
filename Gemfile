@@ -31,6 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
 gem 'high_voltage'
 
 group :development do
@@ -56,3 +58,5 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+
+gem 'omniauth-facebook'
