@@ -5,8 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
+</head> 
 <body>
+<%= link_to("Home", root_path)%>
+<%= link_to("Sign up", new_user_registration_path) if current_user.nil?%>
+
+<% flash.each do |name, msg| %>
+  <% if msg.class == Array %>
+    <%= msg.each do |message| %>
+     <%= content_tag :div, message, :id => "flash_#{name}" %>
+    <% end %>
+  <% else %> 
+    <%= content_tag :div, msg, :id => "flash_#{name}" %> 
+  <% end %>
+<% end %>
 
 <%= yield %>
 

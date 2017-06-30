@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 *~
+
+#ingnore the env file
+*.env
