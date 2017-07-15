@@ -53,4 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  root 'welcome#home'
+  get '/about' => 'welcome#about'
 end
