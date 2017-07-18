@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # You had to block this and use the following route
+  # devise_for :users
+  root 'welcome#home'
+  get '/about' => 'welcome#about'
+  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+                                      
+  # Warning: URL Blocked: This redirect failed because the redirect URI is not whitelisted in the app’s Client OAuth Settings. Make sure Client and Web OAuth Login are on and add all your app domains as Valid OAuth Redirect URIs.
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -118,3 +118,57 @@ Your Rails server must be run from the same shell window/tab as where you set yo
 [fbdev]: https://developer.facebook.com
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
+
+
+# Message after running devise install:
+  rails generate devise:install
+
+===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Ensure you have defined default url options in your environments files. Here
+     is an example of default_url_options appropriate for a development environment
+     in config/environments/development.rb:
+
+       config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+     In production, :host should be set to the actual host of your application.
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root to: "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+  4. You can copy Devise views (for customization) to your app by running:
+
+       rails g devise:views
+
+===============================================================================
+
+# Two possible places to put your Omniauth configuration:
+
+In the omniauth.rb file:
+  ../omniauth_readme-v-000/config/initializers/omniauth.rb:2:  provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+
+In the devise.rb file:
+  config/initializers/devise.rb: config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
+
+## To read more about where to configure Omniauth in your project, read this link:
+  https://github.com/plataformatec/devise/wiki/OmniAuth%3A-Overview
+
+## Don't forget to include a .env file and put it in the .gitignore.
+Alternatively, you can just run the following commands in Bash to set the ENV variables. But, you must use the same terminal for running your server
+
+  export FACEBOOK_KEY=your_app_id
+  export FACEBOOK_SECRET=your_app_secret
+
+## You also have to include this in your user.rb model:
+
+  devise :omniauthable, :omniauth_providers => [:facebook]
