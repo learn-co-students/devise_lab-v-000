@@ -1,0 +1,10 @@
+<h1>Welcome</h1>
+<h3>Home</h3>
+
+
+
+ <% if current_user %>
+  <%= current_user.email %><br>
+  <% else %>
+  <h3>User not logged in</h3>
+  <% end %>
