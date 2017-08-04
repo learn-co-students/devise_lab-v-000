@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  # validates :email, presence: true
+  # validates :password, presence: true
+  # validates :password, length: { minimum: 5}
 end
