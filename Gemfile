@@ -34,6 +34,8 @@ gem 'omniauth-facebook'
 
 gem 'high_voltage'
 
+gem 'dotenv-rails'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
