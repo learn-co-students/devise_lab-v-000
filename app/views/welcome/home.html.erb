@@ -1,2 +1,11 @@
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 Welcome
+<% if current_user.present?  %>
+ <h1>Home</h1><br/><br/>
+  Hello, <%= current_user.email if current_user %>
+<% end %>
+
+<br></br>
+
+<% if current_user.blank? %>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %><br>
+<% end %>

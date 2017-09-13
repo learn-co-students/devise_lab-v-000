@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   #devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # You can have the root of your site routed with "root"
    root 'welcome#home'
 
   # Example of regular route:
     get '/about' => 'welcome#about'
-    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
