@@ -1,0 +1,322 @@
+  [1m[36m (13.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (8.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20170914004336)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (4.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20170914004336"]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 19:46:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (9.6ms)
+Completed 200 OK in 75ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/signin" for 127.0.0.1 at 2017-09-13 19:46:20 -0500
+
+ActionController::RoutingError (No route matches [GET] "/users/signin"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/dschlaud/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/dschlaud/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/dschlaud/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (42.7ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (100.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-13 19:46:43 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (375.5ms)
+Completed 200 OK in 830ms (Views: 817.3ms | ActiveRecord: 0.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddOmniauthToUsers (20170914004834)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (6.4ms)[0m  [1mALTER TABLE "users" ADD "provider" varchar[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_users_on_provider" ON "users" ("provider")[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "uid" varchar
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  CREATE  INDEX "index_users_on_uid" ON "users" ("uid")
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170914004834"]]
+  [1m[35m (6.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_uid' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_uid' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_provider' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_provider' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-13 20:06:12 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (429.2ms)
+Completed 200 OK in 1611ms (Views: 1579.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-09-13 20:06:25 -0500
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-09-13 20:06:26 -0500
+
+
+Started GET "/users/auth/facebook/callback?error_code=1349168&error_message=URL+Blocked%3A+This+redirect+failed+because+the+redirect+URI+is+not+whitelisted+in+the+app%E2%80%99s+Client+OAuth+Settings.+Make+sure+Client+and+Web+OAuth+Login+are+on+and+add+all+your+app+domains+as+Valid+OAuth+Redirect+URIs.&state=ee8d75ac7f8d8e5121ca2ec0b23d363c5a7d1e8f0996c950" for 127.0.0.1 at 2017-09-13 20:06:39 -0500
+Processing by Devise::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error_code"=>"1349168", "error_message"=>"URL Blocked: This redirect failed because the redirect URI is not whitelisted in the app’s Client OAuth Settings. Make sure Client and Web OAuth Login are on and add all your app domains as Valid OAuth Redirect URIs.", "state"=>"ee8d75ac7f8d8e5121ca2ec0b23d363c5a7d1e8f0996c950"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-13 20:06:39 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 78ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-09-13 20:17:43 -0500
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-09-13 20:17:43 -0500
+
+
+Started GET "/users/auth/facebook/callback?code=AQA2tmiGSDlXm-fzvs9BEgwp4S7Tg7Xe85BLl6ujq8D0vhPSbsIJLev5nMPxuDyEjZNNMGXdz96hhmu_t1kVBu1sX6hga7FGum223lDOwuZn3lVIi7_c23VgGPrz-DCPCGL06BU_fPhWYxsnvI9PSOUM-JNMOdn7ALsA97wY2Wg4OkGS5DC5p4wIoDjSYStRyla3Yfw2pdx41-9-828FwdQZPWWaQWW6LXm2uEVKaeJa0n8hcuK2UUpDh9PogDlynNuwu3ioPGQt1-chNVK8D1xeuUU5Fy3EEKE0coxF2u1VfLv0cJCeFNPLOTx2BwNvNAU&state=ce2482640a11ac3cc0f08627bca1c2c21b303c8710e8f877" for 127.0.0.1 at 2017-09-13 20:17:44 -0500
+
+AbstractController::ActionNotFound - The action 'facebook' could not be found for Devise::OmniauthCallbacksController:
+  actionpack (4.2.3) lib/abstract_controller/base.rb:132:in `process'
+  actionview (4.2.3) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.3) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.3) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/mapper.rb:49:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.3) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.3) lib/action_dispatch/routing/route_set.rb:821:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:407:in `call_app!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:361:in `callback_phase'
+  omniauth-oauth2 (1.4.0) lib/omniauth/strategies/oauth2.rb:75:in `callback_phase'
+  omniauth-facebook (4.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+  omniauth-facebook (4.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+  omniauth-facebook (4.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:230:in `callback_call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:187:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+  warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+  warden (1.2.7) lib/warden/manager.rb:35:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.3) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.3) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.3) lib/active_support/callbacks.rb:84:in `run_callbacks'
+  actionpack (4.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.3.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/dschlaud/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/dschlaud/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/dschlaud/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/3a9acd1219992046/variables" for 127.0.0.1 at 2017-09-13 20:17:45 -0500
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-13 20:18:38 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 47ms (Views: 45.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-09-13 20:29:24 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /home/dschlaud/.rvm/gems/ruby-2.3.3/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (445.3ms)
+Completed 200 OK in 766ms (Views: 709.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-09-13 20:29:28 -0500
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-09-13 20:29:29 -0500
+
+
+Started GET "/users/auth/facebook/callback?code=AQC68MajgVNGjnl0qfg-FzJSAmX1nt6r6kkk0CnCQcRwhjLSXljDjXAUOVVcyboOTB9n1iIixb2A374bBys6UrD7sZiNO-gHv_gFs-ty4joI0DnL2Ovf8mFGegR-QsZjMxWjjA4waGhmDK3TFoYYWlRMbpF3PkyUKJP2LtiUP-5hWn8nQYjh9usFxUy0CDRZeoeqqBMocIYEBu2A0GIU6zeYUeJDyK7y1b_jHzB8AyaUqR6wGgnZcgdPVifppuHd6ZQCGqfsL5RwcMdjoC7BMROibpC7lKtILlSvBVDapPv0OMkR_ewNjwV5ZIrmwlWeGGE&state=08b5804ed7303af78331a7b1291d6ec3eb28b054609ef021" for 127.0.0.1 at 2017-09-13 20:29:29 -0500
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQC68MajgVNGjnl0qfg-FzJSAmX1nt6r6kkk0CnCQcRwhjLSXljDjXAUOVVcyboOTB9n1iIixb2A374bBys6UrD7sZiNO-gHv_gFs-ty4joI0DnL2Ovf8mFGegR-QsZjMxWjjA4waGhmDK3TFoYYWlRMbpF3PkyUKJP2LtiUP-5hWn8nQYjh9usFxUy0CDRZeoeqqBMocIYEBu2A0GIU6zeYUeJDyK7y1b_jHzB8AyaUqR6wGgnZcgdPVifppuHd6ZQCGqfsL5RwcMdjoC7BMROibpC7lKtILlSvBVDapPv0OMkR_ewNjwV5ZIrmwlWeGGE", "state"=>"08b5804ed7303af78331a7b1291d6ec3eb28b054609ef021"}
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["provider", "facebook"], ["uid", "10108027373146895"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'dschlaud@gmail.com' LIMIT 1
+  [1m[36mSQL (8.6ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "facebook"], ["uid", "10108027373146895"], ["email", "dschlaud@gmail.com"], ["encrypted_password", "$2a$11$oHox9FAwRJZIIRDu1H.OLuVtG.aJB3Pgm7NCKFktndYBXjuZrIAq6"], ["created_at", "2017-09-14 01:29:30.053095"], ["updated_at", "2017-09-14 01:29:30.053095"]]
+  [1m[35m (9.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-09-14 01:29:30.075584"], ["current_sign_in_at", "2017-09-14 01:29:30.075584"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2017-09-14 01:29:30.077389"], ["id", 1]]
+  [1m[36m (6.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 317ms (ActiveRecord: 29.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-13 20:29:30 -0500
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 43ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
