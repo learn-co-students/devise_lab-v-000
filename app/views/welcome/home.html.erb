@@ -1,0 +1,15 @@
+<h1>Welcome Home
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+<% if flash[:notice] %>
+  <div class="notice"><%=flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert"><%=flash[:alert] %></div>
+<% end %>
+
+<% if !!current_user %>
+  <% current_user.email %>
+<% end %>
+</h1>
