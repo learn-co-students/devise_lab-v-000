@@ -1,1 +1,7 @@
-<% current_user.email %>
+<h1>Welcome Home Sign in with Facebook Sign out</h1>
+<p>Password is too short</p>
+
+ Sign in/Sign up: <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+
+ <%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %>
