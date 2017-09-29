@@ -1,1 +1,5 @@
-<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% if current_user %>
+  <h2>Email: <%= current_user.email %></h2>
+<% else %>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% end %>

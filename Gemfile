@@ -22,10 +22,13 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# devise omniauth gems
+gem 'devise'
+gem 'devise_invitable'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 gem 'pry'
-gem 'dotenv-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -57,6 +60,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
-gem 'devise', '~> 4.2.0'
-gem 'devise_invitable'

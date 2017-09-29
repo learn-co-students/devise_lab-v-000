@@ -244,7 +244,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
-  devise (~> 4.2.0)
+  devise
   devise_invitable
   dotenv-rails
   factory_girl_rails
