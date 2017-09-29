@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 *~
+
+# Ignore omniauth env file
+.env
