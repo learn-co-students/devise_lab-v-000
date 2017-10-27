@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= content_tag(:div, flash[:error], id: 'flash error') if flash[:error] %>
+  <%= content_tag(:div, flash[:notice], id: 'flash notice') if flash[:notice] %>
+  <%= content_tag(:div, flash[:alert], id: 'flash alert') if flash[:alert] %>
 
 <%= yield %>
+
+<%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
+
 
 </body>
 </html>

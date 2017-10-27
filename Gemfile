@@ -45,6 +45,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
+  gem 'pry'
 end
 
 group :test do
@@ -56,3 +57,5 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+
+gem 'omniauth-facebook'
