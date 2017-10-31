@@ -1,0 +1,10 @@
+<h1>Welcome</h1>
+
+<div class='navbar'>
+  <a href="/">Home</a> |
+  <a href="/users/sign_up">Sign up</a>
+</div>
+
+<%= current_user.email if current_user %>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<%= signout_link %>
