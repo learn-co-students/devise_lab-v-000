@@ -6,16 +6,26 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
+<<<<<<< HEAD
   # config.secret_key = 'cea2e73ad09a7d3f3daae317cfa3cf546245c46546f2ce033fda2a8a21557bd10616db5baa5f3351cf5b72c4d75f1924689957b3ad324cef1849ec22664529a4'
+=======
+  # config.secret_key = 'abc68144a1209aa808d1684584e6b9b8c122cb65d2a644780b464669b138e61f915df3b5d463667aa845325c3a1aef5a3e8c538b4d3033db7a329f9be7f5871f'
+>>>>>>> 62ba3db58b3529f8549f94fc20de26e508e77de1
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+<<<<<<< HEAD
 
   config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
   
+=======
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  
+
+>>>>>>> 62ba3db58b3529f8549f94fc20de26e508e77de1
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -110,7 +120,11 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
+<<<<<<< HEAD
   # config.pepper = 'f93a608518d6939c17d1fecb2c11972dcdf141a1cea4bc43ceb0453e215a0786a5979341c98e4a3c78ee82ef8788bc1d627b6a6ff8c52a732fe1ce8fa38cd92c'
+=======
+  # config.pepper = '3939dee90ed346170f51e27beeef16b344c6755e5513777420b72ecac93655c8dfcf2ca3059a24f0ef0415e7af2a0a5d5137fd918fb125066fba3ea770d2dbc3'
+>>>>>>> 62ba3db58b3529f8549f94fc20de26e508e77de1
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -156,7 +170,11 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
+<<<<<<< HEAD
   config.password_length = 7..128
+=======
+  config.password_length = 6..128
+>>>>>>> 62ba3db58b3529f8549f94fc20de26e508e77de1
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
