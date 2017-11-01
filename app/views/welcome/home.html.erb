@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+<%= "Welcome" %>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<%= link_to "Home", root_path %>
+<%= link_to "Sign in", root_path %>
+<%= link_to "Sign up", root_path %>
+<%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %>
+=======
+<%= current_user.email%>
+
+ <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+>>>>>>> 62ba3db58b3529f8549f94fc20de26e508e77de1
