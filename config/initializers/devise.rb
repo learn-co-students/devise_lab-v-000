@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '7722b86c1b465f71a323307ae6f6e4bda9af41de3c39c47994ea196cbb4c960252e567476b3608b0a6780ea6ed0c2377825c21824777c4534528f2872b93ed95'
+  # config.secret_key = 'bfd11bcaa81b5b0f6d2619bc9f00ec54394bf9360df69c1fe89f0adc16275796b7f485a11d29777f6dcb8b7eb9b0a4afe59326e39bf3b6283aecdd74d84fa175'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -25,7 +25,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -108,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'd4a4cf6c8570418c187a8484a10c4d7da305cd162d6a460746ead33f45b0aa22b676fb4eee68f85f29e932b2ce6e6cd56228b93e2d7f7f8544953ded2af2c1ce'
+  # config.pepper = 'dd78364cd328238f66034c08e1319f6eb4a338a940169ff54618c21925a92877afecf835d8cd51a5f1199a74011cfd6ee16a227f23e22d690d88e0af87b4f1e5'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -249,8 +249,6 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -273,4 +271,5 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.password_length = 7..128
 end
