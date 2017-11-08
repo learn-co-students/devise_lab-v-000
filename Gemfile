@@ -56,3 +56,7 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
