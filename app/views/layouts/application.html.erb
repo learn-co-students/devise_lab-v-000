@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<nav>
+		<%= link_to 'Home', welcome_home_path %>
+		<%= link_to 'About', about_path %>
+		 <%= link_to "Sign up", new_user_registration_path %>
+		<%= link_to 'Sign out', destroy_user_session_path, :method => 'delete' %> 
+	</nav>
+	<hr>
+	
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
 
-<%= yield %>
+	<%= yield %>
 
 </body>
 </html>
