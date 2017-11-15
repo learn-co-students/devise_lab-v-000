@@ -1,9 +1,9 @@
 class WelcomeController < ApplicationController
 
-  def index
-    
+  def about
+    render :text => "About the Website"
   end
-  
+
   def home
   end
 end
