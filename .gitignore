@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 *~
+
+# Ignore set up file for environment
+.env
