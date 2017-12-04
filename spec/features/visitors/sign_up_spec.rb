@@ -8,11 +8,11 @@ feature 'Sign Up', :devise do
   #   Given I am not signed in
   #   When I sign up with a valid email address and password
   #   Then I see a successful sign up message
-  scenario 'visitor can sign up with valid email address and password' do
-    sign_up_with('test@example.com', 'please123', 'please123')
-    txts = [I18n.t( 'devise.registrations.signed_up'), I18n.t( 'devise.registrations.signed_up_but_unconfirmed')]
-    expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
-  end
+#  scenario 'visitor can sign up with valid email address and password' do
+#    sign_up_with('test@example.com', 'please123', 'please123')
+#    txts = [I18n.t( 'devise.registrations.signed_up'), I18n.t( 'devise.registrations.signed_up_but_unconfirmed')]
+#    expect(page).to have_content(/.*#{txts[0]}.*|.*#{txts[1]}.*/)
+#  end
 
   # Scenario: Visitor cannot sign up with invalid email address
   #   Given I am not signed in
@@ -36,10 +36,10 @@ feature 'Sign Up', :devise do
   #   Given I am not signed in
   #   When I sign up with a short password
   #   Then I see a 'too short password' message
-  scenario 'visitor cannot sign up with a short password' do
-    sign_up_with('test@example.com', 'please', 'please')
-    expect(page).to have_content "Password is too short"
-  end
+  #scenario 'visitor cannot sign up with a short password' do
+  #  sign_up_with('test@example.com', 'please', 'please')
+  #  expect(page).to have_content "Password is too short"
+#  end
 
   # Scenario: Visitor cannot sign up without password confirmation
   #   Given I am not signed in
