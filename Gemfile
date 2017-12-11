@@ -32,6 +32,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'high_voltage'
+gem 'devise', '~> 4.2.0'
+gem 'devise_invitable'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'better_errors'
@@ -53,6 +57,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
-gem 'devise', '~> 4.2.0'
-gem 'devise_invitable'
