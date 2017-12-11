@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<%= link_to "Home", root_path %>
+<%= link_to "Sign up", new_user_registration_path if !current_user %>
+
 <%= yield %>
 
 </body>
