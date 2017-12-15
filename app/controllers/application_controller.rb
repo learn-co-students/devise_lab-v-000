@@ -6,21 +6,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def welcome
-  
-    redirect_to action: 'show' if session[:user_id].present?
-  end
-  
-  def show
-    
-    @user = current_user
+    redirect_to user_path(current_user) if user_signed_in?
   end
   
   def after_sign_in_path_for(resource)
-  
-    show_path(current_user)
+    user_path(current_user)
   end
   
   def about
-        
-    end
+    
+  end
 end

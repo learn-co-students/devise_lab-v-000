@@ -2,16 +2,16 @@ Rails.application.routes.draw do
 
   root 'application#welcome'
   
-  get '/welcome' => 'application#welcome'
-  resources :users
-  
-  get '/about', to: 'application#about'
-  get '/users/sign_in', to: 'sessions#login'
-  get '/signup', to: 'sessions#signup'
-  post '/', to: 'sessions#create'
-  get '/signout', to: 'sessions#destroy'
-  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  get '/welcome' => 'application#welcome'
+  resources :users, :only => [:show]
+  get '/about', to: 'application#about'
+  #get '/users/sign_in', to: 'sessions#login'
+  #get '/signup', to: 'sessions#signup'
+  #post '/', to: 'sessions#create'
+  #get '/signout', to: 'sessions#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
