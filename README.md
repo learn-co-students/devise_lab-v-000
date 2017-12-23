@@ -118,3 +118,6 @@ Your Rails server must be run from the same shell window/tab as where you set yo
 [fbdev]: https://developer.facebook.com
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
+
+export FACEBOOK_KEY=175342683057129
+export FACEBOOK_SECRET=d302211a8cf3d48de03a6e5197961a49
