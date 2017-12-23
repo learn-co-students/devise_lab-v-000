@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<nav>
+  <%= link_to("Home", root_path) %> |
+  <%= link_to("Sign out", destroy_user_session_path, :method => "delete") %> |
+  <%= link_to("Sign up", new_user_registration_path) %>
+</nav>
+
+# <% flash.each do |key, value| %>
+#     <div class="flash <%= key %>"><%= value %></div>
+# <% end %>
+
 <%= yield %>
 
 </body>
