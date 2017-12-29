@@ -51,7 +51,7 @@ You'll see that there's another similar line commented out for Github; feel free
 
 Confusingly, `FACEBOOK_KEY` is called appId in the console. Set the values in your shell like so,
 
-    export FACEBOOK_KEY=your_app_id
+    export FACEBOOK_KEY=1944948089101049
     export FACEBOOK_SECRET=your_app_secret
 
 Add this line to your `user.rb` to enable omniauth:

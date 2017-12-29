@@ -1,0 +1,8 @@
+<h1>Welcome</h1>
+
+<% if current_user %>
+    <%= current_user.email %> | <%= link_to "Sign out", "/users/sign_out", method: :delete %><br>
+<% end %>
+    
+
+
