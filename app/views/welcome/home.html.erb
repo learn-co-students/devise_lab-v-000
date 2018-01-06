@@ -1,0 +1,47 @@
+
+
+<% #binding.pry %>
+<% if current_user == nil %>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash" if msg.length > 0 %>
+<% end %>
+
+
+<% if flash[:alert] %>
+    <div class="notice"><%= flash[:alert] %></div>
+<% end %>
+<p>Signed out successfully.</p>
+<p>Welcome</p>
+
+<% if flash[:notification] %>
+    <div class="notice"><%= flash[:notification] %></div>
+<% end %>
+    <p>Sign in<a href="/users/sign_up">Here</a></p>
+    <p>Sign up</p>
+<% else %>
+<% if flash[:alert] %>
+    <div class="notice"><%= flash[:alert] %></div>
+<% end %>
+
+
+<% if flash[:notification] %>
+    <div class="notice"><%= flash[:notification] %></div>
+<% end %>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash" if msg.length > 0 %>
+<% end %>
+
+
+<p>Welcome</p>
+<p>Home</p>
+    <%= current_user.email %>  
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+ 
+ <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+<% end %>
+
+ 
