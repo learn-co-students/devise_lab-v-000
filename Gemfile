@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'high_voltage'
 
+gem 'omniauth-facebook'
+
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
