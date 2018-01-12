@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  get '/about' => 'welcome#about'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
