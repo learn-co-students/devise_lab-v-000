@@ -1,5 +1,5 @@
 <% if signed_in? %>
-  <h1> Welcome <%= current_user.email %> to your Home Page </h1>
+  <h1> Welcome <%= current_user.email %> to your Home Page </h1> %>
 
   <%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %>
 <% else %>
