@@ -27,9 +27,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'devise', '~> 4.2.0'
+gem 'devise_invitable'
 
 gem 'high_voltage'
 
@@ -53,6 +57,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-
-gem 'devise', '~> 4.2.0'
-gem 'devise_invitable'
