@@ -58,3 +58,4 @@ gem 'devise'
 gem 'devise_invitable'
 
 gem 'omniauth-facebook'
+gem 'omniauth'
