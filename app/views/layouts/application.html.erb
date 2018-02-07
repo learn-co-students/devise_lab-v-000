@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= link_to "Sign out", destroy_user_session_path, method: 'delete' %>
+  <%= link_to "Sign out", destroy_user_session_path, method: 'delete' %>
 
   <%= content_tag :div, flash[:error], id: "flash_error" if flash[:error] %>
   <%= content_tag :div, flash[:alert], id: "flash_error" if flash[:alert] %>
