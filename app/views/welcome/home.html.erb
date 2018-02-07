@@ -3,6 +3,7 @@
 <%= current_user && current_user.email %>
 <%= link_to "Sign in", user_facebook_omniauth_authorize_path unless current_user %>
 <%= link_to "Sign up", user_facebook_omniauth_authorize_path unless current_user %>
+<%= link_to "Sign out", destroy_user_session_path, method: 'delete' %>
 
 <% if current_user %>
   <%= form_tag destroy_user_session_path do %>
