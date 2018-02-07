@@ -1,0 +1,12 @@
+<h1>Welcome Home</h1>
+
+<% if current_user %>
+  <h2>Welcome, <%= current_user.email %>!</h2>
+<% end %>
+
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<!--
+#user_facebook_omniauth_authorize_path route helper method
+returns the string URL path "/users/auth/facebook"
+(this GET request to "/users/auth/facebook" initiates the OAuth Fackbook login process)
+-->
