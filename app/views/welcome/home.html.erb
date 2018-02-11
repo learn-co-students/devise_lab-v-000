@@ -1,0 +1,9 @@
+
+<h1>Welcome</h1>
+<%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+
+<p><%= current_user.email if !current_user.nil? %></p>
+<%= link_to("Home", "/") %><br>
+<%= link_to 'Sign up', new_user_registration_path %>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %>
