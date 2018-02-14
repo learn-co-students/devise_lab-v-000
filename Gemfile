@@ -42,7 +42,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem "factory_bot_rails", "~> 4.0"
   gem 'faker'
   gem 'rspec-rails'
 end
@@ -56,3 +56,5 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+gem 'omniauth-facebook'
+gem 'dotenv'
