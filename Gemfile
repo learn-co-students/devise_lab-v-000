@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'high_voltage'
+gem 'devise'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'better_errors'
@@ -42,7 +44,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
 end
@@ -54,5 +56,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'devise', '~> 4.2.0'
-gem 'devise_invitable'
+
+
