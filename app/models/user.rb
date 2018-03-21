@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
+
+  #lets setup a validation for our users that the password_length needs to be between 7 and 128 characters
   devise :database_authenticatable, :validatable, password_length: 7..128
 
   def self.from_omniauth(auth)
