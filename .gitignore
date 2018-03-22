@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 *~Gemfile.lock
+
+# Ignore .env file
+.env
