@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -42,7 +44,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  #gem 'factory_girl_rails'  #old
+ gem "factory_bot_rails" #new
   gem 'faker'
   gem 'rspec-rails'
 end
@@ -56,3 +59,5 @@ end
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'
+  gem 'dotenv-rails'
+gem 'omniauth-facebook'
