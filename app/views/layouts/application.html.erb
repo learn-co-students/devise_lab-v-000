@@ -5,8 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %>
+  <%= link_to("Home", 'welcome#home', :method => 'get') %>
+  <%= link_to("About", 'welcome#about', :method => 'get') %>
+  <%= link_to("Sign up", new_user_registration_path, :method => 'get') %>
+
+
 </head>
 <body>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
