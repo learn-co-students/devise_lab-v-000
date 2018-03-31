@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 *~Gemfile.lock
+
+# Ignore .env to ensure that you don't accidentally commit your precious credentials.
+/.env
