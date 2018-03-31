@@ -6,7 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'ecae511ef0df696d84553586d787c2f1b9ddc3d6606859462fedaa5b3ad0230a19feb2c3f8e26481854b607f215c78d2d6195651133236f3290ec91bf76f82fd'
+   config.secret_key = 'ecae511ef0df696d84553586d787c2f1b9ddc3d6606859462fedaa5b3ad0230a19feb2c3f8e26481854b607f215c78d2d6195651133236f3290ec91bf76f82fd'
+  #config.secret_key = '797f992343d586343365b9272136c61f'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -231,7 +232,7 @@ Devise.setup do |config|
 
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
-  # config.sign_out_all_scopes = true
+   config.sign_out_all_scopes = true
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
