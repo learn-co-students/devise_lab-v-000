@@ -1,0 +1,2 @@
+module WecomeHelper
+end
