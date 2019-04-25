@@ -8,6 +8,23 @@
 </head>
 <body>
 
+<nav>
+  <ul>
+    <% if !current_user %>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Sign In", user_session_path %></li>
+    <% else %>
+      <li><%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %></li>
+    <% end %>
+  </ul>
+</nav>
+
+<div>
+  <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+  <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+  <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+</div>
 <%= yield %>
 
 </body>
