@@ -55,6 +55,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'devise', '~> 4.2.0'
-gem 'devise_invitable'
+gem 'devise'
+#, '~> 4.2.0'
+#gem 'devise_invitable'
 gem 'omniauth-facebook'
