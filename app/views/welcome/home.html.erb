@@ -1,0 +1,11 @@
+<% if signed_in? %>
+  <h1> Welcome <%= current_user.email %> to your Home Page </h1> %>
+
+  <%= link_to("Sign out", destroy_user_session_path, :method => 'delete') %>
+<% else %>
+  <h1> Welcome to the user Home Page</h1>
+
+  <p><%= link_to "Sign up", new_user_registration_path %></p>
+  <p><%= link_to "Sign in", new_user_session_path %></p>
+  <p><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></p>
+<% end %>
