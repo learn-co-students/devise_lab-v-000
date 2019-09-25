@@ -1,0 +1,5 @@
+<h1>Welcome</h1>
+<%= current_user.email if current_user %>
+<%= link_to "Sign in with Github", user_facebook_omniauth_authorize_path %>
+<%= link_to "Sign up", new_user_registration_path %>
+<%= link_to "Sign out", destroy_user_session_path, method: "delete"%>
