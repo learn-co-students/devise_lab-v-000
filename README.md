@@ -48,10 +48,10 @@ Add the `omniauth-facebook` gem to your Gemfile:
 
     gem 'omniauth-facebook'
 
-As you might intuit, since we're going to allow users, modeled by the `User`
-class to log in with another authentication system, we need to store some more
-data about those users in our `users` table in _our_ database. This means we
-need to write a migration.
+Since we're going to allow users, modeled by the `User` class to log in with
+another authentication system, we need to store some more data about those
+users in our `users` table in _our_ database. This means we need to write a
+migration.
 
 We'll need to store two more columns in our user model: a `provider` `String`
 (which will always be `'facebook'` or `nil` in our app for the moment; you
@@ -75,12 +75,12 @@ What's actually happening here is we're invoking a method:
 
 The parameters for the method are something like:
 
-    config.omniauth(third-party-authentiation, login, password)
+    config.omniauth(third-party-authentication-service, login, password)
 
 So what we're telling [Omniauth] is how to log _our application_ in.
 
 To confuse things further, instead of just passing in an actual login like
-`"example-key"` or a passworld like `"super-secret-p@ssW()rD!' to
+`"example-key"` or a password like `"super-secret-p@ssW()rD!' to
 `config.omniauth`, we're passing in references to keys from a hash called
 `ENV`. What's going on with this?
 
@@ -89,7 +89,7 @@ a number of variables that can be set in the shell. When those variables are
 set, programs launched from within the shell inherit those variables.  We use
 the shell command `export` to define a variable in a shell. When a program is
 run from that shell, particularly `rails`, it takes those environment variables
-and puts them in  globally-accessible `Hash` called `ENV`.
+and puts them in a globally-accessible `Hash` called `ENV`.
 
 > ***IMPORTANT**: Keep in mind, your Rails server ***must be run from a shell
 > with set ENV variables***. Use the command `env` to see what your environment
@@ -97,7 +97,7 @@ and puts them in  globally-accessible `Hash` called `ENV`.
 > won't see them either.
 
 So all this explanation and code comes down to this: We write important data to
-unix environment variables and we pass those variables' special information to
+shell environment variables and we pass those variables' special information to
 `config.omniauth`.
 
 This might sound confusing, but the alternative would be to store our login key
@@ -126,14 +126,14 @@ Which would typically be exemplified by:
 
 `http://localhost:3000/users/auth/facebook/callback`
 
-However, since March of 2018, Facebook now requires us to provide ***https**
+However, since March of 2018, Facebook now requires us to provide ***https***
 URLs. Rails does not, by default, start up an https-capable server. To get
 around this, start up the Rails server with `thin start --ssl` **instead of**
 `rails s` or `rails server`. We're sorry to toss this extra complexity in, but
 the continued war between those who seek to compromise web applications and
 those who build them necessitates this. Note: your browser, (Chrome, for
 instance), may display a security warning that you are not accessing a secure
-site (in the end we are just faking an https url to satisfy Facebook). Feel
+site (in the end we are just faking an https URL to satisfy Facebook). Feel
 free to bypass that warning and continue on to your site.
 
 This setting is listed under `Client OAuth Settings` in the dashboard.
@@ -213,11 +213,12 @@ It turns out that Devise doesn't know automatically. We have to write a method i
 
 ## Part 3, Displaying Errors
 
-We have a basic sign up/in/out flow setup with Facebook login! Start the server
-with `rails s` to try it out. There is just one problem though. When a visitor
-has an incorrect login attempt, no feedback is given! Since creating custom
-views for each view is a bit of a pain (feel free to try it from the docs
-[here][custom-layouts]) we are simply going to use a simple hack.
+We have a basic sign-up, sign-in, and sign-out flows setup with Facebook login!
+Start the server with `rails s` to try it out. There is just one problem
+though. When a visitor has an incorrect login attempt, no feedback is given!
+Since creating custom views for each view is a bit of a pain (feel free to try
+it from the docs [here][custom-layouts]) we are simply going to use a simple
+hack.
 
 Devise adds all the messages it wants to display in the `flash` hash that is
 available to our views. Since we do not have any intense CSS going on we can
@@ -245,7 +246,7 @@ that you have files to edit. To do this you're going to need to use [Devise]'s
 1. To pass all the tests you will need to create a `/about` route, view and
    controller (under `WelcomeController`) to display a simple about page.
 2. Passwords must be 6 characters or longer (you can achieve this with a length
-   validation on `:password` in the `User` model with devise)
+   validation on `:password` in the `User` model with [Devise])
 
 ## Hiccups
 
