@@ -106,7 +106,7 @@ when we pushed our code to GitHub, **anyone in the world could harvest our
 identity**. In fact, research shows that there are bots crawling GitHub
 ***right now*** searching for people having made these mistakes.
 
-## Getting a `FACEBOOK_KEY` and `FACEBOOK_SECRET` 
+## Getting a `FACEBOOK_KEY` and `FACEBOOK_SECRET`
 
 To set things up with `config.omniauth`, we need to get those values.
 
@@ -184,7 +184,7 @@ Facebook.
 
     def facebook
       @user = User.from_omniauth(request.env["omniauth.auth"])
-      sign_in_and_redirect @user      
+      sign_in_and_redirect @user
     end
 
 We have to write the `User.from_omniauth` method ourselves.
@@ -194,7 +194,7 @@ We have to write the `User.from_omniauth` method ourselves.
         where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
           user.email = auth.info.email
           user.password = Devise.friendly_token[0,20]
-        end      
+        end
       end
     end
 
@@ -210,7 +210,7 @@ It turns out that Devise doesn't know automatically. We have to write a method i
     def after_sign_in_path_for(resource)
       request.env['omniauth.origin'] || root_path
     end
-    
+
 ## Part 3, Displaying Errors
 
 We have a basic sign up/in/out flow setup with Facebook login! Start the server
