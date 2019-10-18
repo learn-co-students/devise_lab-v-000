@@ -39,31 +39,99 @@ Now generate your `User` model with:
 
     rails g devise User
 
-Run `rake routes`. You should see that Devise has added a bunch of routes.
+Run `rails routes`. You should see that Devise has added a bunch of routes.
 
-Run `rake db:migrate`.
+Run `rails db:migrate`.
 
-Run `thin start --ssl` and take a look at some routes, maybe `/users/sign_in`.
-Normally, we would run `rails server` here. We are changing things because
-`thin` will allow us to run an https-based server. This is required by Facebook
-as of March 2018. Your operating system may ask you if it's OK to open up a web
-connection from Ruby. It is. We're sorry to toss this extra complexity in, but
-the continued war between those who seek to compromise web applications and
-those who build them necessitates this.
+## From Devise to Server Rules
 
-For our purposes, we can think of it merely as "a more secure `rails server`
-command" though. Visit `https://localhost:3000/users/sign_up`. When you visit
-this site, your browser, (Chrome, for instance), may display a security warning
-that you are not accessing a secure site (in the end we are just faking an
-https URL to satisfy Facebook). Feel free to bypass that warning and continue
-on to your site. For a production application, you'll need to get HTTPS
-certificates, etc. in place, but for this demonstration that's not required.
+Our goal is to connect our app to Facebook. Normally we would want to test our
+our server by running `rails server` here. Facebook requires that sites that
+communicate with them be secured by HTTPS, the same style of connection that's
+used when you browser your bank accounts on-line. The default `rails server`
+**does not** run with that security in place.  We have forced this lab to run
+with security in place so that you can connect to Facebook. That means that if
+you start Rails with `rails server` and try to visit
+`http://localhost:3000/users/sign_up`, you will get an error:
 
-To bypass: Display the "Advanced" button and then "Proceed to localhost
-(unsafe)." Accept the first (default) certificate. It should be a long number
-made up of `[0-9A-Z]` (or, "hexadecimal") numbers.
+```text
+This site can’t provide a secure connection
 
-You should now have a working app with sign in.
+localhost sent an invalid response.
+```
+
+We need to set up our server to work with HTTPS. This is a tangent from
+"getting authentication from Facebook working" in the strict sense, but this is
+absolutely a challenge real developers face every day. You think you have a
+handle on something and then a third party changes things and you have to do
+some weird, complex, and new-to-you work to get things working again.
+
+To get Rails running securely we need:
+
+1. A certificate
+2. A key
+3. A new way to start the Rails server securely
+
+### Generate the Key and Certificate
+
+Key and certificate generation is a complex field.  We're going to give you a
+command to generate your own key and certificate. Do not add these with `git`.
+These are not secure. These are sufficient for testing.
+
+You will need the `openssl` command installed on your system.
+
+Run the `openssl` command.
+
+```shell
+$ openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout devise_lab_localhost.key -out devise_lab_localhost.crt
+```
+
+This will start generating some cryptographic resources for your server to use.
+You'll be asked to fill in some organizational data. We put some in for fun:
+
+```text
+openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout
+devise_lab_localhost.key -out devise_lab_localhost.crt
+Generating a 2048 bit RSA private key
+............................................................................+++
+................+++
+writing new private key to 'devise_lab_localhost.key'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) []:us
+State or Province Name (full name) []:ny
+Locality Name (eg, city) []:nyc
+Organization Name (eg, company) []:testing
+Organizational Unit Name (eg, section) []:justtesting
+Common Name (eg, fully qualified host name) []:reallytesting
+Email Address []:nobody@example.com
+```
+
+We can verify the files were created with:
+
+```shell
+$ ls devise_lab_localhost.key devise_lab_localhost.crt
+```
+
+Lastly, let's start the Rails server with these "dummy" files.
+
+```shell
+$ rails server -b 'ssl://localhost:3000?key=devise_lab_localhost.key&cert=devise_lab_localhost.crt'
+```
+
+At long last, we can **now** go to `https://localhost:3000/users/sign_up`.
+You'll be given an error (because the authority of this certificate was you,
+not someone official). Click the "Advanced" button and "Proceed to localhost
+(unsafe)." At _very_ long last, you'll see that Rails is working!
+
+OK, now that our communication path to Facebook will work, let's get Facebook
+authentication working.
 
 ## Part 2, Customization
 
@@ -72,6 +140,8 @@ Now let's add Facebook login support with [Omniauth].
 Add the `omniauth-facebook` gem to your Gemfile:
 
     gem 'omniauth-facebook'
+
+Run `bundle install` after.
 
 Since we're going to allow users, modeled by the `User` class to log in with
 another authentication system, we need to store some more data about those
@@ -85,24 +155,21 @@ the user's authenticated Facebook ID.
 
 ```shell
 rails g migration AddOmniauthToUsers provider:index uid:index
-rake db:migrate
+rails db:migrate
 ```
 
 ### Configuring Omniauth for Facebook Use
 
-And add the [Omniauth] configuration to `config/initializers/devise.rb`:
+We need to add the [Omniauth] configuration to `config/initializers/devise.rb`:
 
     config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 
-What's actually happening here is we're invoking a method:
-
-    config.omniauth(:facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'])
-
-The parameters for the method are something like:
+This tells [Omniauth] how to log _our application_ in to Facebook so that we
+can use it for _our_ users' authentication.  What's actually happening here is
+we're invoking a method called `config.omniauth` with  parameters for the
+method are something like:
 
     config.omniauth(third-party-authentication-service, login, password)
-
-So what we're telling [Omniauth] is how to log _our application_ in.
 
 To confuse things further, instead of just passing in an actual login like
 `"example-key"` or a password like `"super-secret-p@ssW()rD!' to
@@ -133,7 +200,8 @@ identity**. In fact, research shows that there are bots crawling GitHub
 
 ## Getting a `FACEBOOK_KEY` and `FACEBOOK_SECRET`
 
-To set things up with `config.omniauth`, we need to get those values.
+To set things up with `config.omniauth`, we need to get the `FACEBOOK_KEY` and
+`FACEBOOK_SECRET` values.
 
 _Keep in mind, the Facebook UI may change subtly over time._
 
@@ -145,16 +213,17 @@ your application.
 
 We might expect that we could provide URLs like:
 
-`http://<YOUR_SERVER_ADDRESS>/users/auth/facebook/callback`
+`https://<YOUR_SERVER_ADDRESS>/users/auth/facebook/callback`
 
 Which would typically be exemplified by:
 
-`http://localhost:3000/users/auth/facebook/callback`
+`https://localhost:3000/users/auth/facebook/callback`
 
 This setting is listed under `Client OAuth Settings` in the dashboard.
 
 Confusingly, `FACEBOOK_KEY` is called appId in their console. Set the values in
-your shell in which you run `rails` like so:
+your shell in which you run `thin` like so (you might need to CTRL+C out of
+`thin` first):
 
     export FACEBOOK_KEY=your_app_id
     export FACEBOOK_SECRET=your_app_secret
@@ -229,15 +298,15 @@ It turns out that Devise doesn't know automatically. We have to write a method i
 ## Part 3, Displaying Errors
 
 We have a basic sign-up, sign-in, and sign-out flows setup with Facebook login!
-Start the server with `rails s` to try it out. There is just one problem
-though. When a visitor has an incorrect login attempt, no feedback is given!
-Since creating custom views for each view is a bit of a pain (feel free to try
-it from the docs [here][custom-layouts]) we are simply going to use a simple
-hack.
+There is just one problem though. When a visitor has an incorrect login
+attempt, no feedback is given!  Since creating custom views for each view is a
+bit of a pain (feel free to try it from the docs [here][custom-layouts]) we are
+simply going to use a simple hack.
 
 Devise adds all the messages it wants to display in the `flash` hash that is
 available to our views. Since we do not have any intense CSS going on we can
 simply add the following code to our `application/application.html.erb` file
+before the `<body>` tag's call to `<%= yield %>`.
 
 ```erb
 <%- flash.each do |name, msg| -%>
@@ -268,6 +337,9 @@ that you have files to edit. To do this you're going to need to use [Devise]'s
 If Devise doesn't seem able to get an email from Facebook, you may have to
 de-authorize and re-authorize your application in your Facebook privacy
 settings.
+
+This is a complex lab with a lot of moving pieces to get right! It might take
+some careful reading of the Rails console output to get everything working.
 
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
