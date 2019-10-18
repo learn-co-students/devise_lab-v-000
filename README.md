@@ -91,6 +91,11 @@ the shell command `export` to define a variable in a shell. When a program is
 run from that shell, particularly `rails`, it takes those environment variables
 and puts them in  globally-accessible `Hash` called `ENV`.
 
+> ***IMPORTANT**: Keep in mind, your Rails server ***must be run from a shell
+> with set ENV variables***. Use the command `env` to see what your environment
+> variables are.  If you don't see the environment variables you expect, Rails
+> won't see them either.
+
 So all this explanation and code comes down to this: We write important data to
 unix environment variables and we pass those variables' special information to
 `config.omniauth`.
@@ -223,11 +228,6 @@ capabilities, it's sufficient.
 If Devise doesn't seem able to get an email from Facebook, you may have to
 de-authorize and re-authorize your application in your Facebook privacy
 settings.
-
-Keep in mind, your Rails server ***must be run from a shell with set ENV
-variables***. Use the command `env` to see what your environment variables are.
-If you don't see the environment variables you expect, Rails won't see them
-either.
 
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
