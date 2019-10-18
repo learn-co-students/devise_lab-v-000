@@ -106,7 +106,7 @@ when we pushed our code to GitHub, **anyone in the world could harvest our
 identity**. In fact, research shows that there are bots crawling GitHub
 ***right now*** searching for people having made these mistakes.
 
-## Getting a `FACEBOOK_KEY` and `FACEBOOK_SECRET` 
+## Getting a `FACEBOOK_KEY` and `FACEBOOK_SECRET`
 
 To set things up with `config.omniauth`, we need to get those values.
 
@@ -115,17 +115,28 @@ _Keep in mind, the Facebook UI may change subtly over time._
 Create an application in the [Facebook developer console][fbdev] and get these
 values from there. You'll also need to go to +Add Product in the sidebar menu
 on the left. This will bring you to the Product Setup page. Here click 'get
-started' for Facebook Login and set Valid OAuth Redirect URLs to include
-the URL that points to:
+started' for Facebook Login and set Valid OAuth Redirect URLs that point to
+your application.
 
-`http://<YOUR_SERVER_ADDRESS>/users/auth/facebook/callback`. Typically this
+We might expect that we could provide URLs like:
 
-will be:
+`http://<YOUR_SERVER_ADDRESS>/users/auth/facebook/callback`
 
-`http://localhost:3000/users/auth/facebook/callback`, but if you're using the
-LearnIDE or some other server technology, make the needed modifications.
+Which would typically be exemplified by:
 
- This setting is listed under `Client OAuth Settings` in the dashboard.
+`http://localhost:3000/users/auth/facebook/callback`
+
+However, since March of 2018, Facebook now requires us to provide ***https**
+URLs. Rails does not, by default, start up an https-capable server. To get
+around this, start up the Rails server with `thin start --ssl` **instead of**
+`rails s` or `rails server`. We're sorry to toss this extra complexity in, but
+the continued war between those who seek to compromise web applications and
+those who build them necessitates this. Note: your browser, (Chrome, for
+instance), may display a security warning that you are not accessing a secure
+site (in the end we are just faking an https url to satisfy Facebook). Feel
+free to bypass that warning and continue on to your site.
+
+This setting is listed under `Client OAuth Settings` in the dashboard.
 
 Confusingly, `FACEBOOK_KEY` is called appId in their console. Set the values in
 your shell in which you run `rails` like so:
@@ -173,7 +184,7 @@ Facebook.
 
     def facebook
       @user = User.from_omniauth(request.env["omniauth.auth"])
-      sign_in_and_redirect @user      
+      sign_in_and_redirect @user
     end
 
 We have to write the `User.from_omniauth` method ourselves.
@@ -183,7 +194,7 @@ We have to write the `User.from_omniauth` method ourselves.
         where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
           user.email = auth.info.email
           user.password = Devise.friendly_token[0,20]
-        end      
+        end
       end
     end
 
@@ -199,7 +210,7 @@ It turns out that Devise doesn't know automatically. We have to write a method i
     def after_sign_in_path_for(resource)
       request.env['omniauth.origin'] || root_path
     end
-    
+
 ## Part 3, Displaying Errors
 
 We have a basic sign up/in/out flow setup with Facebook login! Start the server

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Used to mock an https url
+gem 'thin'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
