@@ -115,17 +115,28 @@ _Keep in mind, the Facebook UI may change subtly over time._
 Create an application in the [Facebook developer console][fbdev] and get these
 values from there. You'll also need to go to +Add Product in the sidebar menu
 on the left. This will bring you to the Product Setup page. Here click 'get
-started' for Facebook Login and set Valid OAuth Redirect URLs to include
-the URL that points to:
+started' for Facebook Login and set Valid OAuth Redirect URLs that point to
+your application.
 
-`http://<YOUR_SERVER_ADDRESS>/users/auth/facebook/callback`. Typically this
+We might expect that we could provide URLs like:
 
-will be:
+`http://<YOUR_SERVER_ADDRESS>/users/auth/facebook/callback`
 
-`http://localhost:3000/users/auth/facebook/callback`, but if you're using the
-LearnIDE or some other server technology, make the needed modifications.
+Which would typically be exemplified by:
 
- This setting is listed under `Client OAuth Settings` in the dashboard.
+`http://localhost:3000/users/auth/facebook/callback`
+
+However, since March of 2018, Facebook now requires us to provide ***https**
+URLs. Rails does not, by default, start up an https-capable server. To get
+around this, start up the Rails server with `thin start --ssl` **instead of**
+`rails s` or `rails server`. We're sorry to toss this extra complexity in, but
+the continued war between those who seek to compromise web applications and
+those who build them necessitates this. Note: your browser, (Chrome, for
+instance), may display a security warning that you are not accessing a secure
+site (in the end we are just faking an https url to satisfy Facebook). Feel
+free to bypass that warning and continue on to your site.
+
+This setting is listed under `Client OAuth Settings` in the dashboard.
 
 Confusingly, `FACEBOOK_KEY` is called appId in their console. Set the values in
 your shell in which you run `rails` like so:
