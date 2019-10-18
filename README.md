@@ -18,6 +18,8 @@ Typically you would need to add [Devise] to your `Gemfile`:
 
 We've already done that for you :)
 
+Run `bundle install`.
+
 Now run the installer:
 
     rails generate devise:install
@@ -31,14 +33,35 @@ You'll notice that the installer prints a big notice of several things you
 should do. In particular, we should have a root route.
 
 Create a `WelcomeController` with a `home` action and a view that just prints
-`current_user.email`.
+`current_user.email`. Generate the controller and the action.
 
 Now generate your `User` model with:
 
     rails g devise User
 
-Run `rake routes` and `rake db:migrate`. You should see that Devise has added a
-bunch of them. Run `rails s` and take a look at one, maybe `/users/sign_in`.
+Run `rake routes`. You should see that Devise has added a bunch of routes.
+
+Run `rake db:migrate`.
+
+Run `thin start --ssl` and take a look at some routes, maybe `/users/sign_in`.
+Normally, we would run `rails server` here. We are changing things because
+`thin` will allow us to run an https-based server. This is required by Facebook
+as of March 2018. Your operating system may ask you if it's OK to open up a web
+connection from Ruby. It is. We're sorry to toss this extra complexity in, but
+the continued war between those who seek to compromise web applications and
+those who build them necessitates this.
+
+For our purposes, we can think of it merely as "a more secure `rails server`
+command" though. Visit `https://localhost:3000/users/sign_up`. When you visit
+this site, your browser, (Chrome, for instance), may display a security warning
+that you are not accessing a secure site (in the end we are just faking an
+https URL to satisfy Facebook). Feel free to bypass that warning and continue
+on to your site. For a production application, you'll need to get HTTPS
+certificates, etc. in place, but for this demonstration that's not required.
+
+To bypass: Display the "Advanced" button and then "Proceed to localhost
+(unsafe)." Accept the first (default) certificate. It should be a long number
+made up of `[0-9A-Z]` (or, "hexadecimal") numbers.
 
 You should now have a working app with sign in.
 
@@ -127,16 +150,6 @@ We might expect that we could provide URLs like:
 Which would typically be exemplified by:
 
 `http://localhost:3000/users/auth/facebook/callback`
-
-However, since March of 2018, Facebook now requires us to provide ***https***
-URLs. Rails does not, by default, start up an https-capable server. To get
-around this, start up the Rails server with `thin start --ssl` **instead of**
-`rails s` or `rails server`. We're sorry to toss this extra complexity in, but
-the continued war between those who seek to compromise web applications and
-those who build them necessitates this. Note: your browser, (Chrome, for
-instance), may display a security warning that you are not accessing a secure
-site (in the end we are just faking an https URL to satisfy Facebook). Feel
-free to bypass that warning and continue on to your site.
 
 This setting is listed under `Client OAuth Settings` in the dashboard.
 
