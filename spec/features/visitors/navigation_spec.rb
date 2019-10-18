@@ -1,3 +1,4 @@
+require 'rails_helper'
 # Feature: Navigation links
 #   As a visitor
 #   I want to see navigation links
