@@ -120,8 +120,10 @@ your shell in which you run `rails` like so:
     export FACEBOOK_KEY=your_app_id
     export FACEBOOK_SECRET=your_app_secret
 
-If you want to make these variables accessible in all terminal windows you open
-on your computer, you can add these values to your `~/.bashrc`.
+To make these changes permanent, we can either update our command-line setup
+code (our `~/.bashrc`) or we can make use of the [dotenv] gem. We'll not cover
+those here, but dotenv stores these variables in a file (`.env`) that Rails
+automatically reads on startup.
 
 Add this line to your `user.rb` to enable omniauth:
 
