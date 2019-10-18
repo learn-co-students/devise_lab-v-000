@@ -107,22 +107,32 @@ It turns out that Devise doesn't know automatically. We have to write a method i
     def after_sign_in_path_for(resource)
       request.env['omniauth.origin'] || root_path
     end
-		
-## Part 3, Displaying errors
-Ok, now we have a basic sign up/in/out flow setup with Facebook login too boot! Start the server with `rails s` to try it out. There is just one problem though. when the user tries to log in from an incorrect account there are no errors displayed! Since creating coustom views for each view is a bit of a pain (feel free to try it from the docs [here](https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts)) we are simply going to use a simple hack.
+    
+## Part 3, Displaying Errors
 
-Devise adds all the messages it wants to display in the `flash` hash that is available to our views. Since we do not have any intese css going on we can simply add the following code to our `application/application.html.erb` file
+We have a basic sign up/in/out flow setup with Facebook login too boot! Start
+the server with `rails s` to try it out. There is just one problem though. when
+the user tries to log in from an incorrect account there are no errors
+displayed! Since creating coustom views for each view is a bit of a pain (feel
+free to try it from the docs [here][custom-layouts]) we are simply going to use
+a simple hack.
 
-	<%- flash.each do |name, msg| -%>
-		<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-	<%- end -%>
+Devise adds all the messages it wants to display in the `flash` hash that is
+available to our views. Since we do not have any intense CSS going on we can
+simply add the following code to our `application/application.html.erb` file
+
+```erb
+<%- flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+<%- end -%>
+```
 
 This will display _all_ flash messages at the top of each page. allowing us to notify the user without overriding the Devise templates
 
 ## Lab spec notes
+
 1. To pass all the tests you will need to create a `/about` route, view and controller (under `WelcomeController`) to display a simple about page.
 2. Passwords must be 7 characters or longer (you can achive this with a length validation on `:password` in the `User` model with devise)
-
 
 ## Hiccups
 
@@ -132,7 +142,6 @@ Your Rails server must be run from the same shell window/tab as where you set yo
 
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
+[custom-layouts]: https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
