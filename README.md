@@ -12,9 +12,11 @@ solved problems that can be rapidly deployed.
 
 ## Instructions: Part 1, Setup
 
-Add Devise to your `Gemfile`:
+Typically you would need to add [Devise] to your `Gemfile`:
 
     gem 'devise'
+
+We've already done that for you :)
 
 Now run the installer:
 
