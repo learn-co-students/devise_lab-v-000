@@ -35,7 +35,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'database_cleaner'
-  gem 'devise', '~> 4.5.0'
+  gem 'devise', '~> 4.7.1'
   gem 'devise_invitable'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
