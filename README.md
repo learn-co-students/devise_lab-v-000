@@ -220,7 +220,7 @@ capabilities, it's sufficient.
 
 1. To pass all the tests you will need to create a `/about` route, view and
    controller (under `WelcomeController`) to display a simple about page.
-2. Passwords must be 7 characters or longer (you can achive this with a length
+2. Passwords must be 6 characters or longer (you can achieve this with a length
    validation on `:password` in the `User` model with devise)
 
 ## Hiccups
