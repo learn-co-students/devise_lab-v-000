@@ -39,17 +39,10 @@ Now generate your `User` model with:
 
     rails g devise User
 
-Run `rake routes`. You should see that Devise has added a bunch of routes.
+Run `rails routes`. You should see that Devise has added a bunch of routes.
 
-Run `rake db:migrate`.
+Run `rails db:migrate`.
 
-Run `thin start --ssl` and take a look at some routes, maybe `/users/sign_in`.
-Normally, we would run `rails server` here. We are changing things because
-`thin` will allow us to run an https-based server. This is required by Facebook
-as of March 2018. Your operating system may ask you if it's OK to open up a web
-connection from Ruby. It is. We're sorry to toss this extra complexity in, but
-the continued war between those who seek to compromise web applications and
-those who build them necessitates this.
 
 For our purposes, we can think of it merely as "a more secure `rails server`
 command" though. Visit `https://localhost:3000/users/sign_up`. When you visit
@@ -72,6 +65,8 @@ Now let's add Facebook login support with [Omniauth].
 Add the `omniauth-facebook` gem to your Gemfile:
 
     gem 'omniauth-facebook'
+
+Run `bundle install` after.
 
 Since we're going to allow users, modeled by the `User` class to log in with
 another authentication system, we need to store some more data about those
@@ -268,6 +263,9 @@ that you have files to edit. To do this you're going to need to use [Devise]'s
 If Devise doesn't seem able to get an email from Facebook, you may have to
 de-authorize and re-authorize your application in your Facebook privacy
 settings.
+
+This is a complex lab with a lot of moving pieces to get right! It might take
+some careful reading of the Rails console output to get everything working.
 
 [Devise]: https://github.com/plataformatec/devise
 [fbdev]: https://developer.facebook.com
