@@ -116,8 +116,16 @@ Create an application in the [Facebook developer console][fbdev] and get these
 values from there. You'll also need to go to +Add Product in the sidebar menu
 on the left. This will bring you to the Product Setup page. Here click 'get
 started' for Facebook Login and set Valid OAuth Redirect URLs to include
-`http://localhost:3000/users/auth/facebook/callback`. This setting is listed
-under `Client OAuth Settings` in the dashboard.
+the URL that points to:
+
+`http://<YOUR_SERVER_ADDRESS>/users/auth/facebook/callback`. Typically this
+
+will be:
+
+`http://localhost:3000/users/auth/facebook/callback`, but if you're using the
+LearnIDE or some other server technology, make the needed modifications.
+
+ This setting is listed under `Client OAuth Settings` in the dashboard.
 
 Confusingly, `FACEBOOK_KEY` is called appId in their console. Set the values in
 your shell in which you run `rails` like so:
