@@ -224,6 +224,11 @@ templates. For more full implementations we'd build a series of custom views,
 but for the purpose of understanding [Omniauth]'s third-party sign-up
 capabilities, it's sufficient.
 
+If you **do** want to go so far as to take over the management of the [Devise]
+views, you need to get [Devise] to put them "into" your Rails application so
+that you have files to edit. To do this you're going to need to use [Devise]'s
+`devise:views` generator. The [documentation][Devise] describes this workflow.
+
 ## Lab Spec Notes
 
 1. To pass all the tests you will need to create a `/about` route, view and
