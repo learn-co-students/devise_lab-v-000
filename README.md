@@ -46,9 +46,9 @@ Run `rails db:migrate`.
 ## From Devise to Server Rules
 
 Our goal is to connect our app to Facebook. Normally we would want to test our
-our server by running `rails server` here. Facebook requires that sites that
+server by running `rails server` here. Facebook requires that sites that
 communicate with them be secured by HTTPS, the same style of connection that's
-used when you browser your bank accounts on-line. The default `rails server`
+used when you browse your bank accounts on-line. The default `rails server`
 **does not** run with that security in place.  We have forced this lab to run
 with security in place so that you can connect to Facebook. That means that if
 you start Rails with `rails server` and try to visit
