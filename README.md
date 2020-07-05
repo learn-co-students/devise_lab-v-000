@@ -345,5 +345,3 @@ some careful reading of the Rails console output to get everything working.
 [fbdev]: https://developer.facebook.com
 [custom-layouts]: https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts
 [Omniauth]: https://github.com/omniauth/omniauth
-
-<p data-visibility='hidden' class='util--hide'>View <a href='https://learn.co/lessons/devise_lab'>Devise Lab</a> on Learn.co and start learning to code for free.</p>
